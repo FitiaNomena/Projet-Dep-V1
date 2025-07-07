@@ -92,7 +92,19 @@ CREATE TABLE salaries (
     to_date     DATE            NOT NULL,
     FOREIGN KEY (emp_no) REFERENCES employees (emp_no) ON DELETE CASCADE,
     PRIMARY KEY (emp_no, from_date)
-) 
+) CREATE OR REPLACE VIEW v_departements_complets AS
+SELECT 
+    d.dept_no,
+    d.dept_name,
+    e.first_name AS manager_first_name,
+    e.last_name AS manager_last_name,
+    COUNT(de.emp_no) AS nb_employes
+FROM departments d
+JOIN dept_manager dm ON d.dept_no = dm.dept_no AND dm.to_date = '9999-01-01'
+JOIN employees e ON dm.emp_no = e.emp_no
+JOIN dept_emp de ON d.dept_no = de.dept_no AND de.to_date = '9999-01-01'
+GROUP BY d.dept_no, d.dept_name, e.first_name, e.last_name;
+
 ; 
 
 CREATE OR REPLACE VIEW dept_emp_latest_date AS
