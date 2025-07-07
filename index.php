@@ -1,7 +1,13 @@
 <?php
 include("inc/fonctions.php");
 $conn = connectToDatabase("localhost", "root", "", "employees");
-$departements = getDepartementsWithManager($conn);
+//$departements = getDepartementsWithManager($conn);
+//$departements = getNombreEmployesParDepartement($conn);
+//les deux variables sont ecrases alors:
+
+$departements = getDepartementsComplets($conn);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +37,9 @@ $departements = getDepartementsWithManager($conn);
                     <th class="text-center text-primary">Nom de departement</th>
                     <th class="text-center text-primary">Manager en cours</th>
                     <th class="text-center text-primary">employees</th>
+                    <!-- ajout de colonne nombre employé --> 
+                    <th class="text-center text-primary">Nombre d'employees</th>
+
 
                 </tr>
                 <?php while ($row = mysqli_fetch_assoc($departements)): ?>
@@ -43,6 +52,8 @@ $departements = getDepartementsWithManager($conn);
                                 Voir employés
                             </a>
                         </td>
+                        <td class="text-center"><?= $row['nb_employes'] ?></td>
+
                     </tr>
                 <?php endwhile; ?>
 
