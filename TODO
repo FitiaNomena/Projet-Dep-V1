@@ -1,0 +1,72 @@
+Projet: DEPARTEMENT
+
+
+Version 1:
+
+I-Créer une page qui affiche la liste des départements
+
+1-Page liste des departements(liste_departement.php)
+    requete sql-> obtenir les departements
+    mettre dans fonction getDepartements
+    appel de la fonction et utiliser balise table
+
+2-Creer fichier pour les fonctions(fonctions.php)
+    -connectToBase-> se connecter au database
+    -getDepartements -> obtenir les departements
+
+3-utilisation de Boostrap (lien)
+
+II-Rajouter une colonne qui affiche le nom du manager en cours
+
+4-Utilisation de view
+
+    creer vue entre manager et departements (v_departments_managers)
+    requete sql 
+    CREATE OR REPLACE VIEW v_departments_managers AS
+    SELECT 
+        d.dept_no,
+        d.dept_name,v
+        e.first_name AS manager_first_name,
+        e.last_name AS manager_last_name
+    FROM departments d
+    JOIN dept_manager dm ON d.dept_no = dm.dept_no
+    JOIN employees e ON dm.emp_no = e.emp_no
+    WHERE dm.to_date = '9999-01-01';  -- manager actuel
+
+-modification de fonctions getDepartements -> ...WithManager
+
+III-Mettre un lien sur chaque ligne de département pour afficher dans une autre page la liste des
+employés de ce département.
+
+5-Rajouter une colonne employee et ajouter bouton Voir employee 
+    Redirection vers pages/liste_employee.php
+
+Version 2:
+
+1-liste_employee.php
+
+    Creer view v_employees 
+    fonction getEmployeesFromDepartment()
+    Ajouter fonction getDepartmentName()
+    ajoute cette fonction pour afficher le nom du département 
+
+2-Lorsqu'on clique sur un employé, on doit afficher la fiche de l'employé
+
+--creer page fiche_employee.php
+    avec:
+    identite
+    nom
+    age
+    departements
+    l'historique du salaire et de l'emploi occupe dans la fiche
+
+
+    
+
+
+   
+
+
+
+
+   
