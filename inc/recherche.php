@@ -16,7 +16,7 @@
 
 <body class="container mt-5">
     <h1 class="mt-4 text-center fs-3 text-info-emphasis ">Recherche d'employés</h1>
-    <form action="employes_recherche.php" method="get" class="row g-3">
+    <form action="../pages/employes_recherche.php" method="get" class="row g-3">
 
         <div class="col-md-4">
             <label for="dept_no" class="form-label">Code du département</label>
