@@ -61,6 +61,25 @@ Version 2:
     l'historique du salaire et de l'emploi occupe dans la fiche
 
 
+
+
+Version 3
+
+1- Ajouter une colonne nombre employé sur la liste des départements (liste_departement.php)
+creer:
+VIEW v_employees_departements
+VIEW v_nombre_employes_par_departement
+
+creer fonctions
+getNombreEmployesParDepartement
+
+mais les deux fonctions ...WithManager et getNombreEmployesParDepartement se sont ecrases
+
+creer:
+VIEW v_departements_complets
+fonction:
+getDepartementsComplets
+
     
 
 
