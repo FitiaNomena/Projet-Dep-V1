@@ -110,6 +110,20 @@ function formatDateFR($date) {
     return $dt ? $dt->format('d/m/Y') : $date;
 }
 
+/*function getNombreEmployesParDepartement($conn) {
+    $sql = "SELECT * FROM v_nombre_employes_par_departement";
+    return mysqli_query($conn, $sql);
+}*/
+
+function getDepartementsComplets($conn) {
+    $sql = "SELECT * FROM v_departements_complets";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) {
+        die("Erreur SQL : " . mysqli_error($conn));
+    }
+    return $result;
+}
+
 
 ?>
 
