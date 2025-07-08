@@ -112,6 +112,10 @@ $queryString = http_build_query($params);
             </tbody>
         </table>
 
+          <div class="mb-2 text-start">
+          <strong>Page <?= $page ?> / <?= $total_pages ?></strong>
+          </div>
+
         <!-- Pagination -->
         <nav class="mt-4">
             <ul class="pagination justify-content-center">
