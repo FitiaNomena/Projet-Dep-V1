@@ -60,7 +60,18 @@ Version 2:
     departements
     l'historique du salaire et de l'emploi occupe dans la fiche
 
+. Création d'un formulaire de recherche ( avec les champs departement, nom employé, age min et max ) recherche.php qui se trouve dans inc et relier 
+et rediriger a employes_recherche.php qui se trouve dans pages .
 
+.Dans employes_recherche.php: 
+-affichage de seulement 20 lignes apres avoir rechercher (en utilisant LIMIT en SQL )
+  SELECT * FROM etudiants
+LIMIT 20, 10;
+-- saute les 20 premiers et affiche les 10 suivants
+
+- Création d'un lien suivant pour afficher les 20 prochaines lignes (qui ne devrait plus apparaitre lorsque l'on se trouve a la derniere page)
+- Création d'un lien précédent pour afficher les 20 lignes précédentes (qui ne devrait pas apparaitre lorsque l'on se trouve a la premiere page)
+- pagination (affichage des nombres de page a gauche pour chaque page)
 
 
 Version 3
