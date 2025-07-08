@@ -28,10 +28,6 @@ $departements = getDepartementsComplets($conn);
         ?>
         <h1 class="mt-4 text-center fs-3 text-info-emphasis ">Liste des Departements</h1>
 
-        <div >
-            
-            <a href="pages/stats_titres_sexe.php" class="btn btn-secondary mt-2">Statistiques(M/F)</a>
-        </div>
        
     </header>
     <main class="mx-auto p-2 bg-white text-emphasis-primary " width="500px" >
