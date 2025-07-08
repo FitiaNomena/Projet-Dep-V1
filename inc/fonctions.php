@@ -124,6 +124,26 @@ function getDepartementsComplets($conn) {
     return $result;
 }
 
+function getStatsParTitre($conn) {
+    $sql = "SELECT * FROM v_stats_titres_sexe_salaire";
+    $result = mysqli_query($conn, $sql);
+
+    if (!$result) {
+        die("Erreur SQL (stats par titre) : " . mysqli_error($conn));
+    }
+
+    return $result;
+}
+function getStatsTitreParDepartement($conn, $dept_no) {
+    $dept_no = mysqli_real_escape_string($conn, $dept_no);
+    $sql = "SELECT * FROM v_stats_par_departement WHERE dept_no = '$dept_no'";
+    $res = mysqli_query($conn, $sql);
+    if (!$res) {
+        die("Erreur stats par département : " . mysqli_error($conn));
+    }
+    return $res;
+}
+
 
 ?>
 

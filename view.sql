@@ -52,3 +52,29 @@ JOIN employees e ON dm.emp_no = e.emp_no
 JOIN dept_emp de ON d.dept_no = de.dept_no AND de.to_date = '9999-01-01'
 GROUP BY d.dept_no, d.dept_name, e.first_name, e.last_name;
 
+
+CREATE OR REPLACE VIEW v_stats_titres_sexe_salaire AS
+SELECT 
+    t.title,
+    SUM(CASE WHEN e.gender = 'M' THEN 1 ELSE 0 END) AS nb_hommes,
+    SUM(CASE WHEN e.gender = 'F' THEN 1 ELSE 0 END) AS nb_femmes,
+    ROUND(AVG(s.salary), 2) AS salaire_moyen
+FROM titles t
+JOIN employees e ON t.emp_no = e.emp_no
+JOIN salaries s ON s.emp_no = e.emp_no AND t.emp_no = s.emp_no 
+    AND s.to_date = '9999-01-01' AND t.to_date = '9999-01-01'
+GROUP BY t.title;
+
+CREATE OR REPLACE VIEW v_stats_par_departement AS
+SELECT 
+    d.dept_no,
+    t.title,
+    SUM(CASE WHEN e.gender = 'M' THEN 1 ELSE 0 END) AS nb_hommes,
+    SUM(CASE WHEN e.gender = 'F' THEN 1 ELSE 0 END) AS nb_femmes,
+    ROUND(AVG(s.salary), 2) AS salaire_moyen
+FROM employees e
+JOIN dept_emp d ON d.emp_no = e.emp_no AND d.to_date = '9999-01-01'
+JOIN titles t ON t.emp_no = e.emp_no AND t.to_date = '9999-01-01'
+JOIN salaries s ON s.emp_no = e.emp_no AND s.to_date = '9999-01-01'
+GROUP BY d.dept_no, t.title;
+

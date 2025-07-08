@@ -80,7 +80,14 @@ VIEW v_departements_complets
 fonction:
 getDepartementsComplets
 
-    
+2-Créer une page pour afficher un tableau contenant le nombre d'employé (homme et femme ), et le salaire moyen pour chaque emploi
+
+    -- creer view v_stats_titres_sexe_salaire et fonction getStatsParTitre
+    -- mettre une nouvelle colonne sur liste departements pour voir les statistiques
+    --statistiques par departements
+    --creer view v_stats_par_departement et fonction ...ParDepartements
+
+
 
 
    
