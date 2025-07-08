@@ -26,10 +26,8 @@ $dept_name = getDepartmentName($conn, $dept_no);
 
 <body>
     <header>
-        <?php
-        include("../inc/menu.php");
-        ?>
-        <h1>Employés du département : <?= htmlspecialchars($dept_name) ?> (<?= $dept_no ?>)</h1>
+       
+        <h1 class="mt-4 text-center fs-3 text-info-emphasis" >Employés du département : <?= htmlspecialchars($dept_name) ?> (<?= $dept_no ?>)</h1>
         <a href="../index.php" class="btn btn-secondary mb-3"> Retour</a>
 
     </header>
